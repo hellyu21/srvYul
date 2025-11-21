@@ -25,22 +25,21 @@ atomic<bool> cook_fired = false;
 void cook(int& efficiency) {
     auto start = chrono::steady_clock::now();
     while (true) {
+        while (!can_serve && !cook_fired && !cook_quit) {
+            std::this_thread::yield();
+        }
+        
+        m.lock();
         if (chrono::steady_clock::now() - start >= chrono::seconds(5)) {
             cook_quit = true;
             //cout << "cook quit" << endl;
-            can_eat = true;
-            can_serve = false;
+            m.unlock();
             break;
         }
-        if (cook_fired) break;
 
-        while (!can_serve) {
-            std::this_thread::yield();
-        }
+        if (cook_fired) { m.unlock(); break; }
 
-        if (cook_fired) break;
-
-        m.lock();
+        
         if (eaten1 < 10000) {
             dish1 += efficiency;
         }
@@ -62,30 +61,31 @@ void cook(int& efficiency) {
         can_serve = false;
         m.unlock();
         std::this_thread::sleep_for(std::chrono::microseconds(4));
+
     }
 }
 
 void eat(int& dish, int& eaten, int& gluttony) {
     while (true) {
         
-        if (cook_fired || cook_quit) break;
-        if (eaten >= 10000) break;
-
-        while (!can_eat) {
+        while (!can_eat && !cook_quit && !cook_fired) {
             std::this_thread::yield();
         }
 
-        if (cook_fired || cook_quit) break;
-
         m.lock();
+        if (cook_fired) { m.unlock(); break; }
+        if (cook_quit) { m.unlock(); break; }
+
+        
         if (dish >= gluttony) {
             dish -= gluttony;
             eaten += gluttony;
             if (eaten >= 10000) {
                 //cout << "exploded " << eaten << endl;
-                m.unlock();
+                
                 can_eat = false;
                 can_serve = true;
+                m.unlock();
                 break;
             }
         }
