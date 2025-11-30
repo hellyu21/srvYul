@@ -1,0 +1,6 @@
+﻿  Server.cpp
+C:\Users\elenka\Documents\GitHub\srvYul\lab7\Server\lab7\Server.cpp(130,82): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\elenka\Documents\GitHub\srvYul\lab7\Server\lab7\Server.cpp(137,84): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\elenka\Documents\GitHub\srvYul\lab7\Server\lab7\Server.cpp(145,74): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\elenka\Documents\GitHub\srvYul\lab7\Server\lab7\Server.cpp(153,78): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+  lab7.vcxproj -> C:\Users\elenka\Documents\GitHub\srvYul\lab7\Server\x64\Debug\Server.exe
