@@ -1,0 +1,3 @@
+﻿  punkt2.cpp
+C:\Users\elenka\Documents\srv\lab6\lab6\punkt2.cpp(62,19): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+  lab6.vcxproj -> C:\Users\elenka\Documents\srv\lab6\x64\Debug\lab6.exe
