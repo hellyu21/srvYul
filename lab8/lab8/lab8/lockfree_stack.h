@@ -131,11 +131,11 @@ namespace lf {
             AtomicNodePtr head;
         };
 
-        VersionHead stack_; //Указатель на начало стека
-        AtomicVersion* subscribers_; //Список читателей 
+        VersionHead stack_; 
+        AtomicVersion* subscribers_; 
         size_t subs_num_;
 
-        std::vector<NodePtr> trash_; //Контейнер для хранения устаревших элементов
+        std::vector<NodePtr> trash_;
         std::atomic_bool stop_flag_;
     };
 }

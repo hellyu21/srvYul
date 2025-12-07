@@ -1,2 +1,3 @@
 ﻿  lab8.cpp
-  lab8.vcxproj -> C:\Users\elenka\Documents\srv\lab8\x64\Debug\lab8.exe
+C:\Users\elenka\Documents\GitHub\srvYul\lab8\lab8\lab8\lab8.cpp(90): warning C4715: `anonymous namespace'::Reader::read: значение возвращается не при всех путях выполнения
+  lab8.vcxproj -> C:\Users\elenka\Documents\GitHub\srvYul\lab8\lab8\x64\Debug\lab8.exe
